@@ -1,7 +1,7 @@
 //=============================================================================
 // File        : alu_pkg.vh
 // Project     : 16-bit Pipelined ALU
-// Author      : MTech VLSI Design Project
+// Author      : Alister Moras
 // Description : Global parameters, opcodes, and macro definitions.
 //               Include this file in every module with `include "alu_pkg.vh"
 //
