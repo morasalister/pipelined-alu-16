@@ -7,13 +7,13 @@
 
 ```
                       ┌─────────────────────────────────────────────┐
-                      │            16-bit Pipelined ALU              │
+                      │            16-bit Pipelined ALU             │
                       │                                             │
-  i_a[15:0] ──────┐   │  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-  i_b[15:0] ──────┤   │  │ Stage 1  │  │ Stage 2  │  │ Stage 3  │  │──► o_result[31:0]
-  i_opcode[4:0] ──┤──►│  │ Input    │─►│ Execute  │─►│ Output   │  │──► o_flags[3:0]
-  i_valid ─────────┘   │  │ Register │  │ (Comb.)  │  │ Register │  │──► o_valid
-                      │  └──────────┘  └──────────┘  └──────────┘  │──► o_exception
+  i_a[15:0] ──────┐   │  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+  i_b[15:0] ──────┤   │  │ Stage 1  │  │ Stage 2  │  │ Stage 3  │   │──► o_result[31:0]
+  i_opcode[4:0] ──┤──►│  │ Input    │─►│ Execute  │─►│ Output   │   │──► o_flags[3:0]
+  i_valid ────────┘   │  │ Register │  │ (Comb.)  │  │ Register │   │──► o_valid
+                      │  └──────────┘  └──────────┘  └──────────┘   │──► o_exception
                       └─────────────────────────────────────────────┘
                                ↑              ↑
                          Active-LOW      6 Submodules:
