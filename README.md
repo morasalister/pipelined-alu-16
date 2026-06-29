@@ -172,7 +172,7 @@ In production, use functional coverage points:
 
 ---
 
-## Possible Extensions (Interview Discussion Points)
+## Possible Extensions
 
 1. **Forwarding / Bypass** — Add data forwarding to eliminate read-after-write hazards
 2. **Saturation arithmetic** — Clamp to MAX/MIN instead of wrapping on overflow  
