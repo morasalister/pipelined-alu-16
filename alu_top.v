@@ -2,7 +2,7 @@
 //=============================================================================
 // File        : alu_top.v
 // Project     : 16-bit Pipelined ALU
-// Author      : MTech VLSI Design Project
+// Author      : Alister Moras
 //
 // Description : Top-level 3-stage pipelined 16-bit ALU.
 //
