@@ -37,7 +37,6 @@ alu_project/
 ├── alu_divider.v       # DIV via Restoring Division
 ├── alu_logic.v         # AND/OR/XOR/NOT/NAND/NOR/XNOR
 ├── alu_shift.v         # SLL/SRL/SRA/ROL/ROR
-├── alu_compare.v       # EQ/NEQ/LT/GT/LTE/GTE (signed + unsigned)
 ├── alu_top.v           # Top-level pipeline integration
 ├── alu_tb.v            # Self-checking testbench
 ├── Makefile            # Build automation
