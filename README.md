@@ -114,48 +114,6 @@ run -all
 
 ---
 
-## Industry Debugging SOP
-
-### Step 1 — Lint Before Simulate
-```bash
-make lint    # Verilator catches width mismatches, implicit wires, etc.
-```
-Never simulate a design that fails lint. Fix all `-Wall` warnings.
-
-### Step 2 — Directed Tests First
-Run the corner-case directed tests in `alu_tb.v` before random:
-- Zero operands
-- Maximum/minimum signed values (0x7FFF, 0x8000)
-- All-ones (0xFFFF)
-- Single-bit transitions
-
-### Step 3 — Waveform Inspection (GTKWave / ModelSim)
-When a test fails, open the `.vcd`:
-1. Add signals: `clk`, `rst_n`, `i_valid`, `i_opcode`, `i_a`, `i_b`, `o_result`, `o_valid`
-2. Add internal pipeline stages: `s1_a`, `s1_b`, `s1_opcode`, `s2_result`
-3. Verify the **3-cycle latency** — input at cycle N should produce output at cycle N+3
-
-### Step 4 — Isolate by Submodule
-Comment out the top-level TB and write a submodule-level TB:
-```
-alu_adder_tb.v  →  tests only alu_adder.v
-alu_mul_tb.v    →  tests only alu_multiplier.v
-```
-Narrow the fault to one file before editing.
-
-### Step 5 — Check Pipeline Valid Propagation
-A common pipeline bug is valid/data misalignment:
-- `i_valid` must propagate: `s1_valid` → `s2_valid` → `o_valid`
-- Every data register must reset alongside its valid bit
-
-### Step 6 — Coverage Closure
-In production, use functional coverage points:
-- Each opcode exercised at least once
-- Operand = 0, MAX, MIN for each arithmetic op
-- Shift amount = 0, 1, 8, 15
-- Comparison both true and false paths
-
----
 
 ## Synthesis Notes (FPGA / ASIC)
 
